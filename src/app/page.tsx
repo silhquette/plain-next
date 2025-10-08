@@ -1,103 +1,208 @@
-import Image from "next/image";
+import { Container } from '@/components/container'
+import { Footer } from '@/components/footer'
+import { Gradient } from '@/components/gradient'
+import { Link } from '@/components/link'
+import { LogoCloud } from '@/components/logo-cloud'
+import { Navbar } from '@/components/navbar'
+import { HighlightProducts } from '@/components/products'
+import { Blogs } from '@/components/blogs'
+import { Heading, Lead, Subheading } from '@/components/text'
+import { AnimatedNumber } from '@/components/animated-number'
+import type { Metadata } from 'next'
+import { ArrowLongRightIcon } from '@heroicons/react/20/solid'
+import SplashScreen from '@/components/splash-logo'
+import { Contacts } from '@/components/contacts'
+
+export const metadata: Metadata = {
+  description:
+    'Radiant helps you sell more by revealing sensitive information about your customers.',
+}
+
+function Hero() {
+  return (
+    <div className="relative bg-white z-0">
+      <Gradient className="absolute w-full h-full bottom-0 rounded-4xl border-t border-ternary" />
+      <Container className="relative">
+        {/* <Navbar /> */}
+        <div className="pt-16 pb-24 sm:pt-24 sm:pb-32 md:pt-32 md:pb-48">
+          <h1 className="font-display text-6xl/[0.9] font-medium tracking-tight text-balance text-gray-950 sm:text-8xl/[0.8] md:text-9xl/[0.8]">
+            Innovation in <br /> Hygiene
+          </h1>
+          <p className="mt-8 max-w-xl text-xl/7 font-medium text-gray-950/75 sm:text-2xl/8">
+            We empower your brand with effective hand sanitizers and disinfectants tailored to your needs.
+          </p>
+        </div>
+      </Container>
+    </div>
+  )
+}
+
+function Header() {
+  return (
+    <Container className="mt-16">
+      <Heading as="h1">Empowering Hygiene Brands to Thrive.</Heading>
+      <Lead className="mt-6 max-w-3xl">
+        Our mission is to revolutionize the hygiene industry by providing innovative, high-quality hand sanitizers and disinfectants that elevate your brand.
+      </Lead>
+      <section className="mt-16 grid grid-cols-1 lg:grid-cols-2 lg:gap-12">
+        <div className="max-w-lg">
+          <h2 className="text-2xl font-medium tracking-tight">Behind the Brand</h2>
+          <p className="mt-6 text-md/6 text-gray-600">
+            PT Ratu Bio Indonesia was founded in January 2015 in Bandung, Indonesia. The company made its mark with a dedication to crafting high-quality hygiene product manufacturing solutions that cater specifically to our client&apos;s requirements. With a passionate and committed team, we have managed to successfully launch an array of hand sanitizers and disinfectants. Our growth over the years has solidified our reputation as a trusted partner in the hygiene industry.
+          </p>
+          <p className="mt-6 text-md/6 text-gray-600">
+            Our state-of-the-art facility guarantees not only the premium quality of our products but also adherence to compliance measures. We work hand in hand with our clients, turning their visions into tangible products. Sustainability and ethical practices form the core of our business ethos, and we are unwavering in our commitment to them. Our ultimate aim is to spearhead industry trends in producing not just effective, but also responsible hygiene products.
+          </p>
+        </div>
+        <div className="lg:pt-0 pt-20 lg:row-span-2 lg:-mr-16 xl:mr-auto">
+          <div className="-mx-8 grid grid-cols-2 gap-4 sm:-mx-16 sm:grid-cols-4 lg:mx-0 lg:grid-cols-2 lg:gap-4 xl:gap-8">
+            <div className="aspect-square overflow-hidden rounded-2xl shadow-xl outline-1 -outline-offset-1 outline-black/10">
+              <img
+                alt=""
+                src="/company/1.jpg"
+                className="block size-full object-cover"
+              />
+            </div>
+            <div className="-mt-8 aspect-square overflow-hidden rounded-2xl shadow-xl outline-1 -outline-offset-1 outline-black/10 lg:-mt-32">
+              <img
+                alt=""
+                src="/company/2.jpg"
+                className="block size-full object-cover"
+              />
+            </div>
+            <div className="aspect-square overflow-hidden rounded-2xl shadow-xl outline-1 -outline-offset-1 outline-black/10">
+              <img
+                alt=""
+                src="/company/3.jpg"
+                className="block size-full object-cover"
+              />
+            </div>
+            <div className="-mt-8 aspect-square overflow-hidden rounded-2xl shadow-xl outline-1 -outline-offset-1 outline-black/10 lg:-mt-32">
+              <img
+                alt=""
+                src="/company/4.jpg"
+                className="block size-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="max-lg:mt-16 lg:col-span-1 hidden">
+          <Subheading>Results That Matter</Subheading>
+          <hr className="mt-6 border-t border-gray-200" />
+          <dl className="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
+            <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
+              <dt className="text-sm/6 text-gray-600">Products Launched</dt>
+              <dd className="order-first text-6xl font-medium tracking-tight">
+                <AnimatedNumber start={100} end={150} />
+              </dd>
+            </div>
+            <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4">
+              <dt className="text-sm/6 text-gray-600">Units Produced Annually</dt>
+              <dd className="order-first text-6xl font-medium tracking-tight">
+                <AnimatedNumber start={9000} end={10000} />K
+              </dd>
+            </div>
+            <div className="flex flex-col gap-y-2 max-sm:border-b max-sm:border-dotted max-sm:border-gray-200 max-sm:pb-4">
+              <dt className="text-sm/6 text-gray-600">Clients Served</dt>
+              <dd className="order-first text-6xl font-medium tracking-tight">
+                <AnimatedNumber start={10} end={50} decimals={1} />M
+              </dd>
+            </div>
+            <div className="flex flex-col gap-y-2">
+              <dt className="text-sm/6 text-gray-600">Global Sales</dt>
+              <dd className="order-first text-6xl font-medium tracking-tight">
+                $<AnimatedNumber start={1} end={5} />M
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+    </Container>
+  )
+}
+
+function Commitments() {
+  return (
+    <div className="overflow-hidden pt-32">
+      <Container>
+        <div className='grid lg:grid-cols-2 gap-12 items-center'>
+          <div className='-mx-8 lg:mx-0 grid grid-cols-5 gap-4'>
+            <div className="col-span-3 h-64 overflow-hidden rounded-2xl shadow-xl outline-1 -outline-offset-1 outline-black/10">
+              <img
+                alt=""
+                src="/company/1.jpg"
+                className="block size-full object-cover"
+              />
+            </div>
+            <div className="col-span-2 h-64 overflow-hidden rounded-2xl shadow-xl outline-1 -outline-offset-1 outline-black/10">
+              <img
+                alt=""
+                src="/company/2.jpg"
+                className="block size-full object-cover"
+              />
+            </div>
+            <div className="col-span-2 h-64 overflow-hidden rounded-2xl shadow-xl outline-1 -outline-offset-1 outline-black/10">
+              <img
+                alt=""
+                src="/company/3.jpg"
+                className="block size-full object-cover"
+              />
+            </div>
+            <div className="col-span-3 h-64 overflow-hidden rounded-2xl shadow-xl outline-1 -outline-offset-1 outline-black/10">
+              <img
+                alt=""
+                src="/company/4.jpg"
+                className="block size-full object-cover"
+              />
+            </div>
+          </div>
+          <div>
+            <Subheading>Our Commitment to Social Responsibility</Subheading>
+            <Heading as="h3" className="mt-2">
+              Making a Difference in Our Community.
+            </Heading>
+            <p className="mt-6 text-md/6 text-gray-600">
+              At PT Ratu Bio Indonesia, we believe in giving back to the community. Our commitment to social responsibility drives us to engage in various initiatives aimed at supporting local health and environmental sustainability. From distributing hand sanitizers to those in need to participating in clean-up drives and educational programs, we strive to make a positive impact wherever we operate.
+            </p>
+            <p className=" text-md/6 text-gray-600 mt-8">
+              Explore some of our recent CSR activities below, showcasing our dedication to creating healthier and safer environments for all. To learn more about our ongoing initiatives and commitments, visit our <Link href="/commitments" className="text-amber-500">Commitments</Link> page.
+            </p>
+            <div className="mt-2">
+              <Link
+                href="#"
+                className="inline-flex items-center gap-2 text-sm/6 font-medium text-amber-500"
+              >
+                Learn More
+                <ArrowLongRightIcon className="size-5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="overflow-hidden">
+      <SplashScreen />
+      <Navbar />
+      <Hero />
+      <main>
+        <Container className="mt-10">
+          <LogoCloud />
+        </Container>
+        <div className='pt-12'>
+          <Header />
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <HighlightProducts />
+      <Commitments />
+      <Blogs />
+      <Footer>
+        <Contacts />
+      </Footer>
     </div>
-  );
+  )
 }
