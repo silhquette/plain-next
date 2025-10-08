@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write  # Diperlukan untuk OIDC auth (opsional, tapi bagus untuk security)
-
+      id-token: write
+      
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,7 +25,7 @@ jobs:
         uses: google-github-actions/setup-gcloud@v2
 
       - name: Configure Docker for Artifact Registry
-        run: gcloud auth configure-docker us-central1-docker.pkg.dev  # Ganti 'us-central1' jika location beda
+        run: gcloud auth configure-docker asia-southeast1-docker.pkg.dev
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -36,5 +36,5 @@ jobs:
           context: .
           push: true
           tags: |
-            us-central1-docker.pkg.dev/ratu-bio/my-repo/my-app:latest
-            us-central1-docker.pkg.dev/ratu-bio/my-repo/my-app:${{ github.sha }}
+            asia-southeast1-docker.pkg.dev/ratu-bio/plain-next/plain-next-app:latest
+            asia-southeast1-docker.pkg.dev/ratu-bio/plain-next/plain-next-app:${{ github.sha }}
